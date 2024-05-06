@@ -1,0 +1,13 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    background-image: url("./img/palmtree.png");
+}
+
+#board {
+    background-image: url("./img/newback.png");
+    background-size: cover;
+    background-color: sandybrown;
+    border-bottom: 1px solid black;
+    
+}
