@@ -44,6 +44,7 @@ let gameOver = false;
 let score = 0;
 
 window.onload = function() {
+    console.log("v1.01");
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
