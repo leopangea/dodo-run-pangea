@@ -43,6 +43,9 @@ let gravity = 1;
 let gameOver = false;
 let score = 0;
 
+// touch/no touch
+let isTouchDevice = false;
+
 window.onload = function() {
     console.log("v1.01");
     board = document.getElementById("board");
@@ -113,6 +116,9 @@ function update() {
     context.fillText(score, 5, 20);
 }
 function moveDinoTouch(e) {
+    isTouchDevice = true;
+    console.log("isTouchDevice:" + isTouchDevice);
+    
     if (gameOver) {
         return;
     }
