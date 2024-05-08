@@ -1,3 +1,5 @@
+//version
+const version = "v1.02";
 
 //board
 let board;
@@ -43,11 +45,11 @@ let gravity = 1;
 let gameOver = false;
 let score = 0;
 
-// touch/no touch
+//touch/no touch
 let isTouchDevice = false;
 
 window.onload = function() {
-    console.log("v1.01");
+    console.log(version);
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
