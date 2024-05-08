@@ -55,19 +55,19 @@ window.onload = function() {
     // context.fillRect(dino.x, dino.y, dino.width, dino.height);
 
     dinoImg = new Image();
-    dinoImg.src = "./img/gamedodonew.png";
+    dinoImg.src = "https://leopangea.github.io/dodo-run-pangea/img/gamedodonew.png";
     dinoImg.onload = function() {
         context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
     }
 
     cactus1Img = new Image();
-    cactus1Img.src = "./img/palmtree.png";
+    cactus1Img.src = "https://leopangea.github.io/dodo-run-pangea/img/palmtree.png";
 
     cactus2Img = new Image();
-    cactus2Img.src = "./img/volcano.png";
+    cactus2Img.src = "https://leopangea.github.io/dodo-run-pangea/img/volcano.png";
 
     cactus3Img = new Image();
-    cactus3Img.src = "./img/Copy of Untitled Design.png";
+    cactus3Img.src = "https://leopangea.github.io/dodo-run-pangea/img/Copy of Untitled Design.png";
 
     requestAnimationFrame(update);
     setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
@@ -94,7 +94,7 @@ function update() {
 
         if (detectCollision(dino, cactus)) {
             gameOver = true;
-            dinoImg.src = "./img/deadgamedodo.png";
+            dinoImg.src = "https://leopangea.github.io/dodo-run-pangea/img/deadgamedodo.png";
             dinoImg.onload = function() {
                 context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
             }
