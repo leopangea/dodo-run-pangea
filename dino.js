@@ -71,7 +71,11 @@ window.onload = function() {
 
     requestAnimationFrame(update);
     setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
+    
+    // add event listener for keyboard (desktop)
     document.addEventListener("keydown", moveDino);
+    // add event listener for touch
+    board.addEventListener("touchstart", moveDinoTouch);
 }
 
 function update() {
@@ -106,6 +110,19 @@ function update() {
     context.font="20px courier";
     score++;
     context.fillText(score, 5, 20);
+}
+function moveDinoTouch(e) {
+    if (gameOver) {
+        return;
+    }
+
+    if ( dino.y == dinoY) {
+        //jump
+        velocityY = -20;
+    }
+    else {
+        //duck
+    }
 }
 
 function moveDino(e) {
