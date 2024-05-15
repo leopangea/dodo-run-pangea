@@ -45,6 +45,18 @@ let gravity = 1;
 let gameOver = false;
 let score = 0;
 
+//sound
+let JumpSound = new Audio ("newjump.mp3");
+JumpSound.volume = 0.3; 
+
+let GameOverSound = new Audio ("game-over-arcade-6435.mp3");
+
+let WinSound = new Audio ("success-fanfare-trumpets-6185.mp3");
+
+let backgroundMusic = new Audio ("wild-west-background-194954.mp3");
+backgroundMusic.volume = 0.1;
+backgroundMusic.loop = true;
+
 //touch/no touch
 let isTouchDevice = false;
 
@@ -53,7 +65,7 @@ window.onload = function() {
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
-
+    backgroundMusic.play ()
     context = board.getContext("2d"); //used for drawing on the board
 
     //draw initial dinosaur
@@ -116,7 +128,20 @@ function update() {
     context.font="20px courier";
     score++;
     context.fillText(score, 5, 20);
+
+    if (gameOver) {
+        context.font = "90px";
+        context.fillText("GAME OVER", 420, 130, 180);
+        context.font = "30px";
+        context.fillText("PRESS 'SPACE' TO RESTART", 380, 150, 180);
+        GameOverSound.play ()
+        backgroundMusic.pause ()
+    }
 }
+
+
+
+
 function moveDinoTouch(e) {
     isTouchDevice = true;
     console.log("isTouchDevice:" + isTouchDevice);
@@ -142,6 +167,7 @@ function moveDino(e) {
     if ((e.code == "Space" || e.code == "ArrowUp") && dino.y == dinoY) {
         //jump
         velocityY = -20;
+        JumpSound.play (  );
     }
     else if (e.code == "ArrowDown" && dino.y == dinoY) {
         //duck
@@ -192,3 +218,29 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
+function updateScore() {
+    let points = Math.floor(50*Math.random()); //(0-1) *50 --> (0-50)
+    if (velocityY < 0) { //negative going up
+        maxScore += points;
+        
+
+         if (score > minScore) {
+         context.fillText("10% off - TRICERATOPS10", 420, 130, 180);
+         ("10% off - TRICERATOPS10", 420, 130, 180);
+         WinSound.play ()
+        }
+         if (score > minScore2) {
+            WinSound.pause ()
+    }
+    else if (velocityY >= 0) {
+        maxScore -= points;
+
+
+    }
+    }
+
+    
+    
+}
+    
