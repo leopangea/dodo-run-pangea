@@ -152,7 +152,7 @@ function moveDinoTouch(e) {
 
     if ( dino.y == dinoY) {
         //jump
-        velocityY = -20;
+        velocityY = -30;
     }
     else {
         //duck
