@@ -1,5 +1,5 @@
 //version
-const version = "v1.02";
+const version = "v1.03";
 
 //board
 let board;
