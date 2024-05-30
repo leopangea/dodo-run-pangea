@@ -1,5 +1,5 @@
 //version
-const version = "v1.03";
+const version = "v1.04";
 
 //board
 let board;
@@ -47,14 +47,15 @@ let gameStarted = false;
 let score = 0;
 
 //sound
-let JumpSound = new Audio("newjump.mp3");
+let baseUrl = "https://leopangea.github.io/dodo-run-pangea/";
+let JumpSound = new Audio(baseUrl + "sound/newjump.mp3");
 JumpSound.volume = 0.3;
 
-let GameOverSound = new Audio("game-over-arcade-6435.mp3");
+let GameOverSound = new Audio(baseUrl + "sound/game-over-arcade-6435.mp3");
 
-let WinSound = new Audio("success-fanfare-trumpets-6185.mp3");
+let WinSound = new Audio(baseUrl + "sound/success-fanfare-trumpets-6185.mp3");
 
-let backgroundMusic = new Audio("wild-west-background-194954.mp3");
+let backgroundMusic = new Audio(baseUrl + "sound/wild-west-background-194954.mp3");
 backgroundMusic.volume = 0.1;
 backgroundMusic.loop = true;
 
@@ -73,19 +74,19 @@ window.onload = function () {
   context = board.getContext("2d"); //used for drawing on the board
 
   dinoImg = new Image();
-  dinoImg.src = "https://leopangea.github.io/dodo-run-pangea/img/gamedodonew.png";
+  dinoImg.src = baseUrl + "img/gamedodonew.png";
   dinoImg.onload = function () {
     context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
   };
 
   cactus1Img = new Image();
-  cactus1Img.src = "https://leopangea.github.io/dodo-run-pangea/img/palmtree.png";
+  cactus1Img.src = baseUrl + "img/palmtree.png";
 
   cactus2Img = new Image();
-  cactus2Img.src = "https://leopangea.github.io/dodo-run-pangea/img/volcano.png";
+  cactus2Img.src = baseUrl + "img/volcano.png";
 
   cactus3Img = new Image();
-  cactus3Img.src = "https://leopangea.github.io/dodo-run-pangea/img/Copy of Untitled Design.png";
+  cactus3Img.src = baseUrl + "img/Copy of Untitled Design.png";
 
   // Display the start message
   context.font = "20px courier";
@@ -127,7 +128,7 @@ function update(timestamp) {
 
       if (detectCollision(dino, cactus)) {
         gameOver = true;
-        dinoImg.src = "https://leopangea.github.io/dodo-run-pangea/img/deadgamedodo.png";
+        dinoImg.src = baseUrl + "img/deadgamedodo.png";
         dinoImg.onload = function () {
           context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
         };
@@ -272,6 +273,6 @@ function restartGame() {
   velocityY = 0;
   dino.y = dinoY;
   cactusArray = [];
-  dinoImg.src = "https://leopangea.github.io/dodo-run-pangea/img/gamedodonew.png";
+  dinoImg.src = baseUrl + "img/gamedodonew.png";
   backgroundMusic.play();
 }
