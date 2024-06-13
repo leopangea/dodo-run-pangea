@@ -45,6 +45,8 @@ let gravity = 1;
 let gameOver = false;
 let gameStarted = false;
 let score = 0;
+let minScore = 10000;
+let minScore2 = 11000;
 
 //sound
 let baseUrl = "https://leopangea.github.io/dodo-run-pangea/";
