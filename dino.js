@@ -257,17 +257,21 @@ function updateScore() {
     //negative going up
     maxScore += points;
 
+  
+  else if (velocityY >= 0) {
+    maxScore -= points;
+  }
+}
+
+function Promocode () {
     if (score > minScore) {
       context.fillText("10% off - TRICERATOPS10", 420, 130, 180);
       WinSound.play();
     }
     if (score > minScore2) {
-      WinSound.pause();
-    }
-  } else if (velocityY >= 0) {
-    maxScore -= points;
+      WinSound.pause();   }
   }
-}
+  
 
 function restartGame() {
   gameOver = false;
